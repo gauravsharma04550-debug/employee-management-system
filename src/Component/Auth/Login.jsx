@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
-const Login = () => {
+const Login = ({handleLogin}) => {
+  
   const[email, setEmail] = useState('')
   const[password, setPassword] = useState('')
   const submitHandler =(e)=> {
@@ -12,8 +13,8 @@ const Login = () => {
           <form 
           onSubmit={(e)=>{
             submitHandler(e)
-            console.log('email is ', email)
-            console.log('password is ', password)
+            handleLogin(email, password)
+
             setEmail('')
             setPassword('')
             
@@ -36,7 +37,7 @@ const Login = () => {
             required 
             className='outline-none bg-transparent border-2 border-cyan-700 rounded-full py-2 px-6 text-xl mt-10 placeholder:text-gray-400'  type="password" placeholder='Enter password...' 
             />
-            <button className=' mt-8  text-white outline-none bg-red-600 border-none rounded-full py-2 px-8 text-xl  placeholder:text-white'>Log in</button>
+            <button className=' mt-8  text-white outline-none bg-red-600 border-none active:scale-95 rounded-full py-2 px-8 text-xl  placeholder:text-white'>Log in</button>
           </form>
       </div>
     </div>
